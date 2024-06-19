@@ -13,7 +13,7 @@ export function Resumo() {
     <>
       <NavBar />
       <FormLayout>
-        <div className="w-full h-96 px-6 bg-slate-100">
+        <div className="h-96 px-6 bg-slate-100">
           <p className="font-semibold text-lg mt-4">NOME DO EQUIPAMENTO</p>
           <div className="flex">
             <p className="text-sm text-gray-500">256 pontos</p>
