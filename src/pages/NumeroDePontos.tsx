@@ -16,7 +16,7 @@ export function NumeroDePontos() {
 
   const handleClick = () => {
     if (!pontos || !slots) {
-      return toast.error("Obrigatorio inserir quantidade de pontos e Slots");
+      return toast.error("Obrigatório inserir quantidade de pontos e Slots");
     }
     navigate("/tensoes");
   };

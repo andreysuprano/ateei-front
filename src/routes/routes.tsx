@@ -8,6 +8,8 @@ import { Repetidor } from "../pages/Repetidor";
 import { SelecaoEquip } from "../pages/SelecaoEquip";
 import { TelaFinal } from "../pages/TelaFinal";
 import { Tensoes } from "../pages/Tensoes";
+import { Resumo } from "../pages/Resumo";
+
 
 export const Router = () => {
   return(
@@ -22,6 +24,7 @@ export const Router = () => {
         <Route path="/telafinal" element={<TelaFinal/>}/>
         <Route path="/tensoes" element={<Tensoes/>}/>
         <Route path="/notificacao" element={<Notificacao/>}/>
+        <Route path="/resumo" element={<Resumo/>}/>
       </Routes>
     </BrowserRouter>
   )
