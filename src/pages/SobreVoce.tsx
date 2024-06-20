@@ -17,7 +17,7 @@ export default function Form() {
 
   const handleClick = () => {
     if (!nome || !email || !skype || !telefone) {
-      return toast.error("Todos os campos sao obrigatorios");
+      return toast.error("Todos os campos São obrigatórios");
     }
     navigate("/chekin");
   };

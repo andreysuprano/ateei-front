@@ -16,7 +16,7 @@ export function Tensoes() {
 
   const handleClick = () => {
     if (!checkBox || !descreva || !valor) {
-      return toast.error("Todos os campos sao obrigatorios");
+      return toast.error("Todos os campos São obrigatórios");
     }
     navigate('/conexoes')
   };

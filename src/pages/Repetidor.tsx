@@ -16,7 +16,7 @@ export function Repetidor () {
 
   const handleClick = () => {
     if(!checkbox || !tensao) {
-      return toast.error("Todos os campos sao obrigatorios");
+      return toast.error("Todos os campos São obrigatórios");
     }
     navigate("/notificacao")
   }

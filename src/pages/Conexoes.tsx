@@ -20,7 +20,7 @@ export function Conexoes() {
 
   const handleClick = () => {
     if (!checkbox || !comunicacao || !isa) {
-      return toast.error("Todos os campos sao obrigatorios");
+      return toast.error("Todos os campos São obrigatórios");
     }
     navigate("/repetidor");
   };
