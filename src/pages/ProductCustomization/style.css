@@ -1,0 +1,66 @@
+.layout {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+}
+
+.borda {
+	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.menu-items {
+}
+
+.menu-titles {
+	width: 100%;
+	margin-top: 30px;
+	flex-direction: column;
+}
+.product-description {
+	display: flex;
+	gap: 15px;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.menu-buttons {
+	display: flex;
+	gap: 10px;
+	width: 90%;
+}
+
+.desenho {
+	width: fit-content;
+	background-color: rgb(117, 117, 117);
+	padding: 10px;
+}
+
+.wrapper-items {
+	display: flex;
+	flex-direction: row;
+	background-color: rgb(195, 195, 195);
+}
+
+.teclado {
+	position: absolute;
+}
+
+.image-teclado {
+	width: 300px;
+}

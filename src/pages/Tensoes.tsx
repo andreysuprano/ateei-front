@@ -32,54 +32,53 @@ export function Tensoes() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. A eligendi
             aliquid laborum!
           </p>
-
-          <div className="checkboxs-1 mt-7 mb-4">
-            <p className="font-semibold text-sm">Tensão de campo VCC</p>
-            <div className="inputs flex mt-3">
-              <div className="flex items-center me-4">
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id=""
-                  onChange={(e) => setCheckBox(e.target.value)}
-                  className="w-4 h-4 text-primary-blue bg-gray-100 border-gray-300 rounded"
-                />
-                <label htmlFor="" className="ms-2 text-sm text-gray-900">
-                  24V
-                </label>
+            <div className="checkboxs-1 mt-7 mb-4">
+              <p className="font-semibold text-sm">Tensão de campo VCC</p>
+              <div className="inputs flex mt-3">
+                <div className="flex items-center me-4">
+                  <input
+                    type="radio"
+                    name="checkbox"
+                    id=""
+                    onChange={(e) => setCheckBox(e.target.value)}
+                    className="w-4 h-4 text-primary-blue bg-gray-100 border-gray-300 rounded"
+                  />
+                  <label htmlFor="" className="ms-2 text-sm text-gray-900">
+                    24V
+                  </label>
+                </div>
+                <div className="flex items-center me-4">
+                  <input
+                    type="radio"
+                    name="checkbox"
+                    id=""
+                    onChange={(e) => setCheckBox(e.target.value)}
+                    className="w-4 h-4 text-primary-blue bg-gray-100 border-gray-300 rounded"
+                  />
+                  <label htmlFor="" className="ms-2 text-sm text-gray-900">
+                    48V
+                  </label>
+                </div>
+                <div className="flex items-center me-4">
+                  <input
+                    type="radio"
+                    name="checkbox"
+                    id=""
+                    onChange={(e) => setCheckBox(e.target.value)}
+                    className="w-4 h-4 text-primary-blue bg-gray-100 border-gray-300 rounded"
+                  />
+                  <label htmlFor="" className="ms-2 text-sm text-gray-900">
+                    60V
+                  </label>
+                </div>
               </div>
-              <div className="flex items-center me-4">
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id=""
-                  onChange={(e) => setCheckBox(e.target.value)}
-                  className="w-4 h-4 text-primary-blue bg-gray-100 border-gray-300 rounded"
-                />
-                <label htmlFor="" className="ms-2 text-sm text-gray-900">
-                  48V
-                </label>
-              </div>
-              <div className="flex items-center me-4">
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  id=""
-                  onChange={(e) => setCheckBox(e.target.value)}
-                  className="w-4 h-4 text-primary-blue bg-gray-100 border-gray-300 rounded"
-                />
-                <label htmlFor="" className="ms-2 text-sm text-gray-900">
-                  60V
-                </label>
-              </div>
-            </div>
 
             <div className="checkboxs-2 mt-3">
               <p className="font-semibold text-sm">Tensão de campo VCA</p>
               <div className="flex mt-3">
                 <div className="flex items-center me-4">
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="checkbox"
                     id=""
                     onChange={(e) => setCheckBox(e.target.value)}
@@ -91,7 +90,7 @@ export function Tensoes() {
                 </div>
                 <div className="flex items-center me-4">
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="checkbox"
                     id=""
                     onChange={(e) => setCheckBox(e.target.value)}
@@ -103,7 +102,7 @@ export function Tensoes() {
                 </div>
                 <div className="flex items-center me-4">
                   <input
-                    type="checkbox"
+                    type="radio"
                     name="checkbox"
                     id=""
                     onChange={(e) => setCheckBox(e.target.value)}
@@ -135,7 +134,7 @@ export function Tensoes() {
             <div className="flex mt-2">
               <div className="flex items-center me-4">
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="checkbox"
                   id=""
                   onChange={(e) => setCheckBox(e.target.value)}
@@ -148,7 +147,7 @@ export function Tensoes() {
 
               <div className="flex items-center me-4">
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="checkbox"
                   id=""
                   onChange={(e) => setCheckBox(e.target.value)}
@@ -161,7 +160,7 @@ export function Tensoes() {
 
               <div className="flex items-center me-4">
                 <input
-                  type="checkbox"
+                  type="radio"
                   name="checkbox"
                   id=""
                   onChange={(e) => setCheckBox(e.target.value)}

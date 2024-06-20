@@ -1,0 +1,42 @@
+.componenet {
+	max-width: 150px;
+	min-width: 150px;
+	max-height: 80px;
+	min-height: 80px;
+	border: 1px solid #000000;
+	background-color: rgb(244, 244, 244);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(234, 91, 91);
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.message span {
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+
+.led {
+	max-width: 20px;
+	min-width: 20px;
+	max-height: 20px;
+	min-height: 20px;
+
+	background-color: red;
+	border-radius: 100%;
+}
