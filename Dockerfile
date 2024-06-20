@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 5173
 
-RUN npm dev
+RUN npm run dev
