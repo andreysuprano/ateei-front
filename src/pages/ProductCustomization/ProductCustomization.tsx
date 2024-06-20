@@ -4,7 +4,7 @@ import ProductCustomizationItem from '../../components/CustomizationItem';
 import NavBar from '../../components/NavBar';
 import './style.css';
 import Modal, { PontoResult } from '../../components/Modal';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export type Ponto = {
 	color: string;
