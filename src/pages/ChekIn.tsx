@@ -18,14 +18,13 @@ export default function CheckIn() {
           Quantos Sinalizadores deseja adquirir?
           </p>
           <p className="text-xs mb-2">Quantidade: 1</p>
-          <div className="mt-6 h-16 bg-slate-50 outline-dashed outline-2 outline-slate-300 flex items-center justify-center cursor-pointer">
+          <div onClick={handleClick} className="mt-6 h-16 bg-slate-50 outline-dashed outline-2 outline-slate-300 flex items-center justify-center cursor-pointer">
               <p className="text-sm">Adicionar Equipamento +</p>
           </div>
 
-          <div className="mt-2 h-16 bg-slate-50 outline-dashed outline-2 outline-slate-300 flex items-center justify-center cursor-pointer">
+          <div onClick={handleClick} className="mt-2 h-16 bg-slate-50 outline-dashed outline-2 outline-slate-300 flex items-center justify-center cursor-pointer">
               <p className="text-sm">Adicionar Acessórios +</p>
           </div>
-          <Button action={handleClick} color="bg-primary-blue" text="Finalizar Pedido"/>
         </section>
       </FormLayout>
     </>

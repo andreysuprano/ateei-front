@@ -23,9 +23,9 @@ export default function ProductCustomizationItem(props: ProductCustomizationItem
 	return (
 		<div className="componenet">
 			<div className="wrapper">
-				{/* <div className="led" /> */}
+				<div className="led" />
 				{props.ledColor == '' ? (
-					<div className={`message ${convertColor()}`}>
+					<div className={`message bg-white`}>
 						<span>_______________</span>
 						<span>_______________</span>
 						<span>_______________</span>

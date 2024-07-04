@@ -4,10 +4,10 @@ import { Router } from "./routes/routes";
 
 
 function App() {
+  console.log('renderizei')
   return (
     <>
       <Router/>
-      {/* <Login/> */}
     </>
   );
 }

@@ -5,7 +5,7 @@ import NavBar from '../../components/NavBar';
 import './style.css';
 import Modal, { PontoResult } from '../../components/Modal';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-
+import Teclado from '../../assets/img/teclado-me.jpeg';
 export type Ponto = {
 	color: string;
 	ledType: string;

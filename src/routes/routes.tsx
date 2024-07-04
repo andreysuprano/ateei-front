@@ -9,14 +9,21 @@ import { SelecaoEquip } from '../pages/SelecaoEquip';
 import { TelaFinal } from '../pages/TelaFinal';
 import { Tensoes } from '../pages/Tensoes';
 import { ProductCustomization } from '../pages/ProductCustomization/ProductCustomization';
-import InscricaoMe from '../pages/InscricaoMe';
 import { CustomizationDone } from '../pages/TelaFinalCustomization';
+import { Resumo } from '../pages/Resumo';
+import { DashCotations } from '../pages/DashCotations';
+import { ProdutosAcessorios } from '../pages/ProdutosAcessorios';
+import { Customization } from '../pages/Customization';
+import { Configuration } from '../pages/Configuration';
+import { Login } from '../pages/Login';
+import InscricaoMe from '../pages/InscricaoMe';
 
 export const Router = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" Component={InscricaoMe} />
+				<Route path="/" Component={SobreVoce} />
+				<Route path="/personalization" Component={InscricaoMe} />
 				<Route path="/customization-me" element={<ProductCustomization />} />
 				<Route path="/tensoes" element={<Tensoes />} />
 				<Route path="/chekin" element={<CheckIn />} />
@@ -27,6 +34,12 @@ export const Router = () => {
 				<Route path="/telafinal" element={<TelaFinal />} />
 				<Route path="/customization-done" element={<CustomizationDone />} />
 				<Route path="/notificacao" element={<Notificacao />} />
+				<Route path="/resumo" element={<Resumo />} />
+				<Route path="/dashboard" element={<DashCotations />} />
+				<Route path="/dashboard/produtos-acessorios" element={<ProdutosAcessorios />} />
+				<Route path="/dashboard/customization" element={<Customization />} />
+				<Route path="/dashboard/configuration" element={<Configuration />} />
+				<Route path="/dashboard/login" element={<Login />} />
 			</Routes>
 		</BrowserRouter>
 	);
