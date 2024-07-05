@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const defaultOptions = {
-	baseURL: 'http://localhost:3000/'
+	baseURL: 'https://andreysuprano-ateei-api.em5vrs.easypanel.host'
 };
 
 const client = axios.create(defaultOptions);
