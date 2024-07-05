@@ -15,7 +15,7 @@ export function Notificacao() {
 	const navigate = useNavigate();
 	const { sam, setSam } = useQuotation();
 
-	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+	const { register, handleSubmit } = useForm<Inputs>();
 
 	const onSubmitForm: SubmitHandler<Inputs> = ({ notificacao, idioma }: Inputs) => {
 		setSam({
