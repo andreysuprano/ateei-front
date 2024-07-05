@@ -1,4 +1,3 @@
-'use client';
 interface FormLayoutProps {
 	children: React.ReactNode;
 }

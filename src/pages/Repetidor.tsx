@@ -21,7 +21,7 @@ export function Repetidor() {
 
 	const navigate = useNavigate();
 
-	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+	const { register, handleSubmit } = useForm<Inputs>();
 
 	const onSubmitForm: SubmitHandler<Inputs> = ({ releRepetidor, tipoSincronismo, tensaoSincronismo }: Inputs) => {
 		setSam({

@@ -17,7 +17,7 @@ export function Conexoes() {
 	const navigate = useNavigate();
 	const { sam, setSam } = useQuotation();
 
-	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+	const { register, handleSubmit } = useForm<Inputs>();
 
 	const onSubmitForm: SubmitHandler<Inputs> = ({ registroEventos, protocoloComunicacao, isa }: Inputs) => {
 		setSam({

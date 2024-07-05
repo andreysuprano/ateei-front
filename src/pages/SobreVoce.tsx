@@ -16,7 +16,7 @@ type Inputs = {
 };
 
 export default function Form() {
-	const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+	const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
 
 	const navigate = useNavigate();
 	const { setQuotation, quotation } = useQuotation();

@@ -1,6 +1,5 @@
 import AdminNavbar from '../components/AdminNavBar';
 import Button from '../components/Button';
-import { Table } from '../components/Table';
 
 export function Configuration() {
 	return (
