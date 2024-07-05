@@ -1,77 +1,89 @@
-import FormLayout from "../components/FormLayout";
-import NavBar from "../components/NavBar";
-import Button from "../components/Button";
-import { useState } from "react";
+import FormLayout from '../components/FormLayout';
+import NavBar from '../components/NavBar';
+import Button from '../components/Button';
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import useQuotation from '../hooks/useQuotation';
+
+type Inputs = {
+	nome: string;
+	email: string;
+	skype: string;
+	telefone: string;
+};
 
 export default function Form() {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [skype, setSkype] = useState("");
-  const [telefone, setTelefone] = useState("");
+	const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
+	const { setQuotation, quotation } = useQuotation();
 
-  const handleClick = () => {
-    if (!nome || !email || !skype || !telefone) {
-      return toast.error("Todos os campos São obrigatórios");
-    }
-    navigate("/chekin");
-  };
-  return (
-    <div>
-      <NavBar />
-      <FormLayout>
-        <p className="text-xl font-bold">
-          Para iniciar precisamos saber um pouco mais sobre você.
-        </p>
-        <div className="pt-8 pb-2 w-full">
-          <input
-            type="text"
-            name="Nome"
-            placeholder="Seu nome"
-            onChange={(e) => setNome(e.target.value)}
-            className="border border-blue-100 rounded-md px-2 py-1 text-sm text-gray-900 w-full h-9"
-          />
-        </div>
-        <div className="pt-2 pb-2 w-full">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-            className="border border-blue-100 rounded-md px-2 py-1 text-sm text-gray-900 w-full h-9"
-          />
-        </div>
+	const onSubmitForm: SubmitHandler<Inputs> = (data: Inputs) => {
+		setQuotation({
+			...quotation,
+			nome: data.nome,
+			email: data.email,
+			skype: data.skype,
+			telefone: data.telefone
+		});
+		navigate('/menu');
+	};
 
-        <div className="pt-2 pb-2 w-full">
-          <input
-            type="text"
-            name="Skaype"
-            placeholder="Skype"
-            onChange={(e) => setSkype(e.target.value)}
-            className="border border-blue-100 rounded-md px-2 py-1 text-sm text-gray-900 w-full h-9"
-          />
-        </div>
-
-        <div className="pt-2 pb-2 w-full">
-          <input
-            type="tel"
-            name="telefone"
-            placeholder="Telefone/WhatsApp"
-            onChange={(e) => setTelefone(e.target.value)}
-            className="border border-blue-100 rounded-md px-2 py-1 text-sm text-gray-900 w-full h-9"
-          />
-        </div>
-
-        <div className="w-full">
-          <Button action={handleClick} color="bg-primary-blue" text="Proximo" />
-          <ToastContainer />
-        </div>
-      </FormLayout>
-    </div>
-  );
+	return (
+		<div>
+			<NavBar />
+			<FormLayout>
+				<p className="text-xl font-bold">Para iniciar precisamos saber um pouco mais sobre você.</p>
+				<form action="" className="pt-8 pb-2 w-full" onSubmit={handleSubmit(onSubmitForm)}>
+					<label>Nome</label>
+					<input
+						type="text"
+						placeholder="Seu nome"
+						className={`border ${errors.nome
+							? 'border-red border-2 mb-0'
+							: 'border-blue-100'} rounded-md px-2 py-1 text-sm text-gray-900 w-full h-12 focus:outline-none mb-5`}
+						{...register('nome', { required: true })}
+					/>
+					{errors.nome && <p className="text-[14px] text-red mb-5">Este campo é obrigatório</p>}
+					<label>Email</label>
+					<input
+						type="email"
+						placeholder="Email"
+						className={`border ${errors.email
+							? 'border-red border-2 mb-0'
+							: 'border-blue-100'} rounded-md px-2 py-1 text-sm text-gray-900 w-full h-12 focus:outline-none mb-5`}
+						{...register('email', { required: true })}
+					/>
+					{errors.email && <p className="text-[14px] text-red mb-5">Este campo é obrigatório</p>}
+					<label>Skype</label>
+					<input
+						type="text"
+						placeholder="Skype"
+						className={`border ${errors.skype
+							? 'border-red border-2 mb-0'
+							: 'border-blue-100'} rounded-md px-2 py-1 text-sm text-gray-900 w-full h-12 focus:outline-none mb-5`}
+						{...register('skype', { required: true })}
+					/>
+					{errors.skype && <p className="text-[14px] text-red mb-5">Este campo é obrigatório</p>}
+					<label>Telefone</label>
+					<input
+						type="tel"
+						placeholder="Telefone/WhatsApp"
+						className={`border ${errors.telefone
+							? 'border-red border-2 mb-0'
+							: 'border-blue-100'} rounded-md px-2 py-1 text-sm text-gray-900 w-full h-12 focus:outline-none `}
+						{...register('telefone', { required: true })}
+					/>
+					{errors.telefone && <p className="text-[14px] text-red">Este campo é obrigatório</p>}
+					<div className="w-full">
+						<Button action={() => {}} color="bg-primary-blue" text="Proximo" />
+					</div>
+				</form>
+				<ToastContainer />
+			</FormLayout>
+		</div>
+	);
 }

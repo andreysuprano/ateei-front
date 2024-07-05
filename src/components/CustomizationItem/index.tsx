@@ -19,20 +19,27 @@ export default function ProductCustomizationItem(props: ProductCustomizationItem
 				return 'bg-green';
 		}
 	}
-
 	return (
 		<div className="componenet">
 			<div className="wrapper">
-				<div className="led" />
+				{props.ledType === 'front' && <div className={`led ${convertColor()}`} />}
 				{props.ledColor == '' ? (
-					<div className={`message bg-white`}>
+					<div
+						className={`message bg-white ${props.ledType === 'back'
+							? 'text-[11px]'
+							: 'text-[11px]'} tracking-widest`}
+					>
 						<span>_______________</span>
 						<span>_______________</span>
 						<span>_______________</span>
 						<span>_______________</span>
 					</div>
 				) : (
-					<div className={`message ${convertColor()}`}>
+					<div
+						className={`message ${props.ledType === 'back' ? convertColor() : ''} ${props.ledType === 'back'
+							? 'text-[11px]'
+							: 'text-[11px]'}`}
+					>
 						{<span>{props.message.split('|')[0]}</span>}
 						{<span>{props.message.split('|')[1]}</span>}
 						{<span>{props.message.split('|')[2]}</span>}

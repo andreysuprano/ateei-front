@@ -6,6 +6,7 @@ import './style.css';
 import Modal, { PontoResult } from '../../components/Modal';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Teclado from '../../assets/img/teclado-me.jpeg';
+
 export type Ponto = {
 	color: string;
 	ledType: string;
@@ -29,12 +30,10 @@ export function ProductCustomization() {
 			}
 			m.push(linha);
 		}
-		console.log(matriz);
 		return m;
 	};
 
 	useEffect(() => {
-		console.log(params.get('colunas'));
 		setMatriz(montaMatriz(Number(params.get('colunas')), Number(params.get('linhas'))));
 	}, []);
 
@@ -62,7 +61,14 @@ export function ProductCustomization() {
 
 	return (
 		<div>
-			<Modal colum={row} line={column} modalOpen={modalOpen} closeModal={closeModal} onSave={onModalSave} />
+			<Modal
+				colum={row}
+				line={column}
+				modalOpen={modalOpen}
+				closeModal={closeModal}
+				onSave={onModalSave}
+				ledType={params.get('ledType') || 'back'}
+			/>
 			<NavBar />
 			<div className="menu bg-slate-100">
 				<div className="menu-items pb-5">
@@ -83,7 +89,7 @@ export function ProductCustomization() {
 							</span>
 						</div>
 					</div>
-					<div className="menu-buttons ">
+					<div className="menu-buttons">
 						<Button
 							action={() => {
 								setTimeout(() => {
@@ -115,7 +121,7 @@ export function ProductCustomization() {
 											>
 												<ProductCustomizationItem
 													ledColor={item.color}
-													ledType={item.ledType}
+													ledType={params.get('ledType') || 'back'}
 													message={item.message}
 												/>
 											</div>
@@ -126,7 +132,7 @@ export function ProductCustomization() {
 								<span>Erro</span>
 							)}
 							<div className="teclado">
-								{/* <img src={Teclado} alt="Teclado ME" className="image-teclado" /> */}
+								<img src={Teclado} alt="Teclado ME" className="image-teclado" />
 							</div>
 						</div>
 					</div>

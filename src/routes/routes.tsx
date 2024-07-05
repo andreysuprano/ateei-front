@@ -5,7 +5,7 @@ import { Conexoes } from '../pages/Conexoes';
 import { Notificacao } from '../pages/Notficacao';
 import { NumeroDePontos } from '../pages/NumeroDePontos';
 import { Repetidor } from '../pages/Repetidor';
-import { SelecaoEquip } from '../pages/SelecaoEquip';
+import { SelecaoEquipamentos } from '../pages/SelecaoEquip';
 import { TelaFinal } from '../pages/TelaFinal';
 import { Tensoes } from '../pages/Tensoes';
 import { ProductCustomization } from '../pages/ProductCustomization/ProductCustomization';
@@ -22,19 +22,26 @@ export const Router = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
+				{/* Redirecionamentos */}
 				<Route path="/" Component={SobreVoce} />
-				<Route path="/personalization" Component={InscricaoMe} />
+
+				{/* Inscrições ME/MA/ANTRON */}
+				<Route path="/subscription/:product" Component={InscricaoMe} />
 				<Route path="/customization-me" element={<ProductCustomization />} />
+
+				{/* SAM */}
+				<Route path="/menu" element={<CheckIn />} />
 				<Route path="/tensoes" element={<Tensoes />} />
-				<Route path="/chekin" element={<CheckIn />} />
 				<Route path="/conexoes" element={<Conexoes />} />
-				<Route path="/numerodepontos" element={<NumeroDePontos />} />
+				<Route path="/numero-de-pontos" element={<NumeroDePontos />} />
 				<Route path="/repetidor" element={<Repetidor />} />
-				<Route path="/selecaodeequip" element={<SelecaoEquip />} />
+				<Route path="/equipamentos" element={<SelecaoEquipamentos />} />
 				<Route path="/telafinal" element={<TelaFinal />} />
 				<Route path="/customization-done" element={<CustomizationDone />} />
 				<Route path="/notificacao" element={<Notificacao />} />
 				<Route path="/resumo" element={<Resumo />} />
+
+				{/* DASHBOARD */}
 				<Route path="/dashboard" element={<DashCotations />} />
 				<Route path="/dashboard/produtos-acessorios" element={<ProdutosAcessorios />} />
 				<Route path="/dashboard/customization" element={<Customization />} />

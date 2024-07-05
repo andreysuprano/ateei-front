@@ -13,6 +13,7 @@ export interface ModalProps {
 	onSave: (ponto: PontoResult) => void;
 	colum: number;
 	line: number;
+	ledType: string;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -77,8 +78,8 @@ export const Modal = (props: ModalProps) => {
 							name="comunicacao"
 							id="name"
 							className="w-full p-3 text-center h-10 rounded-md border-2 border-gray-300 mb-4 uppercase"
-							placeholder="Max 15 caracteres"
-							maxLength={15}
+							placeholder={`Max ${props.ledType == 'front' ? 15 : 19} caracteres`}
+							maxLength={props.ledType == 'front' ? 15 : 19}
 							onChange={(e) => setLine1(e.target.value)}
 							value={line1}
 						/>
@@ -88,8 +89,8 @@ export const Modal = (props: ModalProps) => {
 							name="comunicacao"
 							id="name"
 							className="w-full p-3 text-center h-10 rounded-md border-2 border-gray-300 mb-4 uppercase"
-							placeholder="Max 15 caracteres"
-							maxLength={15}
+							placeholder={`Max ${props.ledType == 'front' ? 15 : 19} caracteres`}
+							maxLength={props.ledType == 'front' ? 15 : 19}
 							onChange={(e) => setLine2(e.target.value)}
 							value={line2}
 						/>
@@ -99,8 +100,8 @@ export const Modal = (props: ModalProps) => {
 							name="comunicacao"
 							id="name"
 							className="w-full p-3 text-center h-10 rounded-md border-2 border-gray-300 mb-4 uppercase"
-							placeholder="Max 15 caracteres"
-							maxLength={15}
+							placeholder={`Max ${props.ledType == 'front' ? 15 : 19} caracteres`}
+							maxLength={props.ledType == 'front' ? 15 : 19}
 							onChange={(e) => setLine3(e.target.value)}
 							value={line3}
 						/>
@@ -110,8 +111,8 @@ export const Modal = (props: ModalProps) => {
 							name="comunicacao"
 							id="name"
 							className="w-full p-3 text-center h-10 rounded-md border-2 border-gray-300 mb-4 uppercase"
-							placeholder="Max 15 caracteres"
-							maxLength={15}
+							placeholder={`Max ${props.ledType == 'front' ? 15 : 19} caracteres`}
+							maxLength={props.ledType == 'front' ? 15 : 19}
 							onChange={(e) => setLine4(e.target.value)}
 							value={line4}
 						/>

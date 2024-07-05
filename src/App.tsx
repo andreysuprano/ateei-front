@@ -1,15 +1,12 @@
-// import { Login } from "./pages/Login";
-import { Router } from "./routes/routes";
-
-
+import { QuotationContextProvider } from './contexts/QuotationContext';
+import { Router } from './routes/routes';
 
 function App() {
-  console.log('renderizei')
-  return (
-    <>
-      <Router/>
-    </>
-  );
+	return (
+		<QuotationContextProvider>
+			<Router />
+		</QuotationContextProvider>
+	);
 }
 
 export default App;
