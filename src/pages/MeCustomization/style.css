@@ -1,8 +1,8 @@
 .layout {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	width: 100vw;
+	max-height: 80vh;
+	min-height: 77vh;
+	overflow-y: scroll;
 }
 
 .borda {
@@ -15,13 +15,22 @@
 }
 
 .menu {
+	bottom: 0;
+	left: 0;
+	position: fixed;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-color: white;
 }
 
 .menu-items {
+	width: 60%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 30px;
 }
 
 .menu-titles {
@@ -42,7 +51,6 @@
 .menu-buttons {
 	display: flex;
 	gap: 10px;
-	width: 90%;
 }
 
 .desenho {
@@ -58,8 +66,18 @@
 }
 
 .teclado {
+	position: absolute;
 }
 
 .image-teclado {
-	width: 300px;
+	width: 340px;
+	height: 160px;
+	z-index: 999;
+}
+
+.screen {
+	width: 100vw;
+	height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
 }

@@ -6,11 +6,13 @@ import './style.css';
 import Modal, { PontoResult } from '../../components/Modal';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Teclado from '../../assets/img/teclado-me.jpeg';
+import ProductCustomizationItemAntron from '../../components/CustomizationItemAntron';
 
 export type Ponto = {
 	color: string;
 	ledType: string;
 	message: string;
+	position?:number;
 };
 
 export function ProductCustomization() {
@@ -22,11 +24,13 @@ export function ProductCustomization() {
 	const [ params ] = useSearchParams();
 
 	const montaMatriz = (col: number, row: number) => {
+		var pos = 1;
 		const m = [];
 		for (var c = 0; c < col; c++) {
 			var linha: Ponto[] = [];
 			for (var l = 0; l < row; l++) {
-				linha.push({ color: '', ledType: '', message: '' });
+				linha.push({ color: '', ledType: '', message: '', position:pos });
+				pos = pos+1;
 			}
 			m.push(linha);
 		}
@@ -60,7 +64,7 @@ export function ProductCustomization() {
 	}
 
 	return (
-		<div>
+		<div className="screen">
 			<Modal
 				colum={row}
 				line={column}
@@ -70,10 +74,66 @@ export function ProductCustomization() {
 				ledType={params.get('ledType') || 'back'}
 			/>
 			<NavBar />
-			<div className="menu bg-slate-100">
-				<div className="menu-items pb-5">
+			<div className="layout">
+				<div className="borda">
+					<div className="desenho">
+						<div className="wrapper-items">
+							{matriz ? (
+								matriz.map((column, col) => (
+									<div key={col}>
+										{column.map((item, rw) => {
+											return(
+											<div
+												onClick={() => {
+													setColumn(col);
+													setRow(rw);
+													setModalOpen(true);
+												}}
+												key={rw}
+											>
+												{
+													params.get('produto') == 'me' ? 
+														<>
+															{col == Number(params.get('colunas')) - 2 &&
+															rw == Number(params.get('linhas')) - 2 && (
+																<div className={`teclado ${modalOpen ? 'hidden' : 'flex'}`}>
+																	<img src={Teclado} alt="Teclado ME" className="image-teclado" />
+																</div>
+															)}
+
+															<ProductCustomizationItem
+																ledColor={item.color}
+																ledType={params.get('ledType') || 'back'}
+																message={item.message}
+															/>
+														</> 
+														: 
+														<>
+															<ProductCustomizationItemAntron
+																ledColor={item.color}
+																ledType={params.get('ledType') || 'back'}
+																message={item.message}
+																position={item.position || 0}
+															/>
+														</>
+														}
+												
+											</div>
+										)})}
+									</div>
+								))
+							) : (
+								<span>Erro</span>
+							)}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div className="menu">
+				<div className="menu-items">
 					<div className="menu-titles">
-						<h1 className="title">Personalização ME3011B</h1>
+						<h1 className="title">Personalização {params.get('produto') == 'me' ? 'ME3011B' : 'Antron'}</h1>
 						<div className="product-description">
 							<span className="format">
 								<strong>Formação:</strong>
@@ -96,45 +156,10 @@ export function ProductCustomization() {
 									navigate('/customization-done');
 								}, 1000);
 							}}
-							color="bg-primary-blue mt-1"
+							color="bg-primary-blue"
 							text="Enviar"
 							width="w-200"
 						/>
-					</div>
-				</div>
-			</div>
-			<div className="layout">
-				<div className="borda">
-					<div className="desenho">
-						<div className="wrapper-items">
-							{matriz ? (
-								matriz.map((item, col) => (
-									<div key={col}>
-										{item.map((item, rw) => (
-											<div
-												onClick={() => {
-													setColumn(col);
-													setRow(rw);
-													setModalOpen(true);
-												}}
-												key={rw}
-											>
-												<ProductCustomizationItem
-													ledColor={item.color}
-													ledType={params.get('ledType') || 'back'}
-													message={item.message}
-												/>
-											</div>
-										))}
-									</div>
-								))
-							) : (
-								<span>Erro</span>
-							)}
-							<div className="teclado">
-								<img src={Teclado} alt="Teclado ME" className="image-teclado" />
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ import { Repetidor } from '../pages/Repetidor';
 import { SelecaoEquipamentos } from '../pages/SelecaoEquip';
 import { TelaFinal } from '../pages/TelaFinal';
 import { Tensoes } from '../pages/Tensoes';
-import { ProductCustomization } from '../pages/ProductCustomization/ProductCustomization';
+import { ProductCustomization } from '../pages/MeCustomization';
 import { CustomizationDone } from '../pages/TelaFinalCustomization';
 import { Resumo } from '../pages/Resumo';
 import { DashCotations } from '../pages/DashCotations';
@@ -16,7 +16,7 @@ import { ProdutosAcessorios } from '../pages/ProdutosAcessorios';
 import { Customization } from '../pages/Customization';
 import { Configuration } from '../pages/Configuration';
 import { Login } from '../pages/Login';
-import InscricaoMe from '../pages/InscricaoMe';
+import { Inscricao } from '../pages/Inscricao';
 
 export const Router = () => {
 	return (
@@ -26,8 +26,8 @@ export const Router = () => {
 				<Route path="/" Component={SobreVoce} />
 
 				{/* Inscrições ME/MA/ANTRON */}
-				<Route path="/subscription/:product" Component={InscricaoMe} />
-				<Route path="/customization-me" element={<ProductCustomization />} />
+				<Route path="/subscription/:produto" Component={Inscricao} />
+				<Route path="/customization" element={<ProductCustomization />} />
 
 				{/* SAM */}
 				<Route path="/menu" element={<CheckIn />} />

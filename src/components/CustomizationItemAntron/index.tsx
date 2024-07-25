@@ -4,9 +4,10 @@ interface ProductCustomizationItemProps {
 	message: string;
 	ledType: string;
 	ledColor: string;
+	position: number;
 }
 
-export default function ProductCustomizationItem(props: ProductCustomizationItemProps) {
+export default function ProductCustomizationItemAntron(props: ProductCustomizationItemProps) {
 	function convertColor() {
 		switch (props.ledColor) {
 			case 'Vermelho':
@@ -22,6 +23,7 @@ export default function ProductCustomizationItem(props: ProductCustomizationItem
 	return (
 		<div className={`componenet ${props.ledType === 'back' ? convertColor() : ''}`}>
 			<div className="wrapper">
+				<div>{props.position}</div>
 				{props.ledType === 'front' && <div className={`led ${convertColor()}`} />}
 				{props.ledColor == '' ? (
 					<div
