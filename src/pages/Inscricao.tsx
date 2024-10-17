@@ -150,8 +150,12 @@ export const Inscricao = () => {
 							
 							):(
 								<>
-									<option value="4,2">Formação</option>
+									<option value="8,4">Formação</option>
 									<option value="8,4">8V x 4H</option>
+									<option value="8,6">8V x 4H</option>
+									<option value="8,8">8V x 4H</option>
+									<option value="8,10">8V x 4H</option>
+									<option value="8,12">8V x 4H</option>
 								</>
 							)}
 						</select>
