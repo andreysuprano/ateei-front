@@ -14,7 +14,7 @@ export default function NavBar() {
 					<img src={logo} alt="" />
 				</div>
 				<div className="flex flex-col items-start justify-center">
-					<a href="">Andrey Suprano</a>
+					<a href="">Admin</a>
 					<a className="text-sm text-gray-500" href="">
 						Administrador
 					</a>

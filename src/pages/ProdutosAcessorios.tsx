@@ -1,6 +1,6 @@
 import AdminNavbar from '../components/AdminNavBar';
 import Button from '../components/Button';
-import { Table } from '../components/Table';
+//import { Table } from '../components/Table';
 
 export function ProdutosAcessorios() {
 	return (
@@ -18,9 +18,7 @@ export function ProdutosAcessorios() {
 						</div>
 					</div>
 				</div>
-				<div className=" w-[60%] pt-10">
-					<Table />
-				</div>
+				<div className=" w-[60%] pt-10">{/* <Table /> */}</div>
 			</div>
 		</div>
 	);

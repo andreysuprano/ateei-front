@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import Button from './Button';
 import { ModalDetalhes } from './Modal/ModalDetalhes';
+import { QuotationGetDto } from '../services/api';
 
-export function Table() {
+export type QuotationsTableProps = {
+	quotationsTable: QuotationGetDto[] | undefined;
+};
+
+export function QuotationsTable(data: QuotationsTableProps) {
 	const [ onModalOpen, setModalOpen ] = useState<boolean>(false);
 
 	return (
@@ -60,122 +65,32 @@ export function Table() {
 						</tr>
 					</thead>
 					<tbody>
-						<tr className="bg-white border-b  hover:bg-gray-50">
-							<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-								0001
-							</th>
-							<td className="px-6 py-4">Siemens</td>
-							<td className="px-6 py-4">joberval@siemens.com.br</td>
-							<td className="px-6 py-4">
-								<span className="bg-blue m-2 inline-block rounded border border-transparent py-1 px-2.5 text-xs font-medium text-white">
-									Proposta Enviada
-								</span>
-							</td>
-							<td className="px-6 py-4">SAM 1.0</td>
-							<td className="px-6 py-4 text-right">
-								<Button
-									action={() => {
-										setModalOpen(true);
-									}}
-									color="bg-primary-green"
-									text="Ver Detalhes"
-									width="mt-0"
-								/>
-							</td>
-						</tr>
-						<tr className="bg-white border-b  hover:bg-gray-50">
-							<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-								0002
-							</th>
-							<td className="px-6 py-4">Siemens</td>
-							<td className="px-6 py-4">joberval@siemens.com.br</td>
-							<td className="px-6 py-4">
-								<span className="bg-yellow m-2 inline-block rounded border border-transparent py-1 px-2.5 text-xs font-medium text-white">
-									Aguardando proposta
-								</span>
-							</td>
-							<td className="px-6 py-4">ME3011B</td>
-							<td className="px-6 py-4 text-right">
-								<Button
-									action={() => {
-										setModalOpen(true);
-									}}
-									color="bg-primary-green"
-									text="Ver Detalhes"
-									width="mt-0"
-								/>
-							</td>
-						</tr>
-						<tr className="bg-white border-b  hover:bg-gray-50">
-							<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-								0003
-							</th>
-							<td className="px-6 py-4">Siemens</td>
-							<td className="px-6 py-4">joberval@siemens.com.br</td>
-							<td className="px-6 py-4">
-								{' '}
-								<span className="bg-red m-2 inline-block rounded border border-transparent py-1 px-2.5 text-xs font-medium text-white">
-									Contato encerrado
-								</span>
-							</td>
-							<td className="px-6 py-4">Antron</td>
-							<td className="px-6 py-4 text-right">
-								<Button
-									action={() => {
-										setModalOpen(true);
-									}}
-									color="bg-primary-green"
-									text="Ver Detalhes"
-									width="mt-0"
-								/>
-							</td>
-						</tr>
-						<tr className="bg-white border-b  hover:bg-gray-50">
-							<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-								0004
-							</th>
-							<td className="px-6 py-4">Siemens</td>
-							<td className="px-6 py-4">joberval@siemens.com.br</td>
-							<td className="px-6 py-4">
-								<span className="bg-green m-2 inline-block rounded border border-transparent py-1 px-2.5 text-xs font-medium text-white">
-									Ordem gerada
-								</span>
-							</td>
-							<td className="px-6 py-4">Antron</td>
-							<td className="px-6 py-4 text-right">
-								<Button
-									action={() => {
-										setModalOpen(true);
-									}}
-									color="bg-primary-green"
-									text="Ver Detalhes"
-									width="mt-0"
-								/>
-							</td>
-						</tr>
-						<tr className="bg-white border-b  hover:bg-gray-50">
-							<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-								0005
-							</th>
-							<td className="px-6 py-4">Siemens</td>
-							<td className="px-6 py-4">joberval@siemens.com.br</td>
-							<td className="px-6 py-4">
-								<span className="bg-green m-2 inline-block rounded border border-transparent py-1 px-2.5 text-xs font-medium text-white">
-									Ordem gerada
-								</span>
-							</td>
-							<td className="px-6 py-4">SAM</td>
-							<td className="px-6 py-4 text-right">
-								<Button
-									action={() => {
-										setModalOpen(true);
-									}}
-									color="bg-primary-green"
-									text="Ver Detalhes"
-									width="mt-0"
-								/>
-							</td>
-						</tr>
+						{data.quotationsTable &&
+							data.quotationsTable.map((item, key) => (
+								<tr className="bg-white border-b  hover:bg-gray-50" key={key}>
+									<th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+										{item.id}
+									</th>
+									<td className="px-6 py-4">{item.companyName}</td>
+									<td className="px-6 py-4">{item.email}</td>
+									<td className="px-6 py-4">
+										<span className="bg-blue m-2 inline-block rounded border border-transparent py-1 px-2.5 text-xs font-medium text-white">
+											{item.status}
+										</span>
+									</td>
+									<td className="px-6 py-4">{item.phone}</td>
+									<td className="px-6 py-4 text-right">
+										<Button
+											action={() => {
+												setModalOpen(true);
+											}}
+											color="bg-primary-green"
+											text="Detalhes"
+											width="mt-0"
+										/>
+									</td>
+								</tr>
+							))}
 					</tbody>
 				</table>
 			</div>

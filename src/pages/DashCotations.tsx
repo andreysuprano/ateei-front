@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react';
 import AdminNavbar from '../components/AdminNavBar';
 import Button from '../components/Button';
-import { Table } from '../components/Table';
+import { QuotationsTable } from '../components/Table';
+import { getQuotations, QuotationGetDto } from '../services/api';
 
 export function DashCotations() {
+	const [ quotations, setQuotations ] = useState<QuotationGetDto[]>();
+
+	async function getAllQuotations() {
+		const response = await getQuotations();
+		setQuotations(response.data);
+	}
+
+	useEffect(() => {
+		getAllQuotations();
+	}, []);
 	return (
 		<div>
 			<AdminNavbar />
@@ -19,7 +31,7 @@ export function DashCotations() {
 					</div>
 				</div>
 				<div className=" w-[60%] pt-10">
-					<Table />
+					<QuotationsTable quotationsTable={quotations} />
 				</div>
 			</div>
 		</div>

@@ -41,5 +41,5 @@ export const addQuotation = async (quotation: QuotationDto) => {
 };
 
 export const getQuotations = async () => {
-	return await client.get<QuotationGetDto>('/quotation/create');
+	return await client.get<QuotationGetDto[]>('/quotation/get-all');
 };

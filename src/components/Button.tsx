@@ -12,7 +12,7 @@ export default function Button(button: ButtonProps) {
 				type="submit"
 				className={`cursor-pointer rounded-md  px-4 py-2 text-sm font-semibold text-white ${button.width
 					? button.width
-					: 'w-full'}  mt-8 ${button.color} h-12`}
+					: 'w-full'}   ${button.color}  h-12`}
 				onClick={button.action}
 			>
 				{button.text}
